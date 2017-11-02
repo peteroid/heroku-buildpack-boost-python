@@ -1,3 +1,17 @@
+#!/bin/sh
+
 set -eu
 
 echo "-----> heroku-buildpack-boost-python [compile]"
+
+BOOST_ZIP='boost_source.zip'
+BOOST_DIR='boost_source'
+wget -O "$BOOST_ZIP" https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.zip
+
+if [[ -f "$BOOST_ZIP" ]];
+then
+  unzip "$BOOST_ZIP" -d "$BOOST_DIR"
+  BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | head -n 1 )"
+
+  sh "$BOOTSTRAP_BIN"
+fi
