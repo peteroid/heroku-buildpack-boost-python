@@ -1,3 +1,5 @@
 set -eu
 
-echo "detect"
+echo "-----> heroku-buildpack-boost-python [detect]"
+
+exit 0
