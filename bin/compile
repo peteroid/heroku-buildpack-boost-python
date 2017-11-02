@@ -19,7 +19,7 @@ then
 
   echo "$BOOTSTRAP_BIN"
   "$BOOTSTRAP_BIN" --help
-  "$BOOTSTRAP_BIN" --with-libraries=python
+  "$BOOTSTRAP_BIN"
 
   B2_BIN="$( find . -name "b2" | head -n 1 )"
   "$B2_BIN"
