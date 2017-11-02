@@ -15,13 +15,16 @@ then
   echo "-----> unzipping binary"
   unzip -q "$BOOST_ZIP" -d "$BOOST_DIR"
 
-  BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | sort | head -n 1 )"
+  cd "$BOOST_DIR/boost_1_65_1"
+
+  # BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | sort | head -n 1 )"
+  BOOTSTRAP_BIN="./bootstrap.sh"
 
   echo "$BOOTSTRAP_BIN"
-  "$BOOTSTRAP_BIN" --help
-  "$BOOTSTRAP_BIN"
+  "$BOOTSTRAP_BIN" --with-libraries=python
 
-  B2_BIN="$( find . -name "b2" | head -n 1 )"
+  # B2_BIN="$( find . -name "b2" | head -n 1 )"
+  B2_BIN="./b2"
   "$B2_BIN"
 
   sudo "$B2_BIN" install
