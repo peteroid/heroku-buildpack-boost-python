@@ -21,7 +21,7 @@ then
   BOOTSTRAP_BIN="./bootstrap.sh"
 
   echo "$BOOTSTRAP_BIN"
-  "$BOOTSTRAP_BIN" --with-libraries=python3
+  "$BOOTSTRAP_BIN" --with-libraries=python
 
   # B2_BIN="$( find . -name "b2" | head -n 1 )"
   B2_BIN="./b2"
