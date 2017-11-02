@@ -15,7 +15,7 @@ then
   echo "-----> unzipping binary"
   unzip -q "$BOOST_ZIP" -d "$BOOST_DIR"
 
-  BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | head -n 1 )"
+  BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | sort | head -n 1 )"
 
   echo "$BOOTSTRAP_BIN"
   "$BOOTSTRAP_BIN" --help
