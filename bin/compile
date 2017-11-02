@@ -6,17 +6,23 @@ echo "-----> heroku-buildpack-boost-python [compile]"
 
 BOOST_ZIP='boost_source.zip'
 BOOST_DIR='boost_source'
+
+echo "-----> downloading binary"
 wget --quiet -O "$BOOST_ZIP" https://dl.bintray.com/boostorg/release/1.65.1/source/boost_1_65_1.zip
 
 if [ -f "$BOOST_ZIP" ];
 then
+  echo "-----> unzipping binary"
   unzip -q "$BOOST_ZIP" -d "$BOOST_DIR"
 
   BOOTSTRAP_BIN="$( find . -name "bootstrap.sh" | head -n 1 )"
-  sh "$BOOTSTRAP_BIN" --with-libraries=python
+
+  echo "$BOOTSTRAP_BIN"
+  "$BOOTSTRAP_BIN" --help
+  "$BOOTSTRAP_BIN" --with-libraries=python
 
   B2_BIN="$( find . -name "b2" | head -n 1 )"
-  sh "$B2_BIN"
+  "$B2_BIN"
 
-  sudo sh "$B2_BIN" install
+  sudo "$B2_BIN" install
 fi
