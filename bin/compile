@@ -21,11 +21,11 @@ then
   BOOTSTRAP_BIN="./bootstrap.sh"
 
   echo "$BOOTSTRAP_BIN"
-  "$BOOTSTRAP_BIN" --with-libraries=python
+  "$BOOTSTRAP_BIN" --with-libraries=python3
 
   # B2_BIN="$( find . -name "b2" | head -n 1 )"
   B2_BIN="./b2"
   "$B2_BIN"
 
-  sudo "$B2_BIN" install
+  "$B2_BIN" install
 fi
